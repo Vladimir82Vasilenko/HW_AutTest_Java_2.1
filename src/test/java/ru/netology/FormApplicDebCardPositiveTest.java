@@ -9,38 +9,38 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class FormApplicDebCardPositiveTest {
     @Test
-    void PositiveTestWithOnlyName() {
+    void shouldBePositiveTestWithOnlyName() {
         open("http://localhost:9999");
         SelenideElement form = $("form");
         form.$(".input__control[type=text").setValue("Владимир");
         form.$(".input__control[type=tel").setValue("+79210000000");
         form.$(".checkbox__box").click();
         form.$(".button__content").click();
-        $(".paragraph").shouldHave(exactText("Ваша заявка успешно отправлена! " +
+        $("[data-test-id='order-success']").shouldHave(exactText("Ваша заявка успешно отправлена! " +
                 "Наш менеджер свяжется с вами в ближайшее время."));
     }
 
     @Test
-    void PositiveTestWithNameSurname() {
+    void shouldBePositiveTestWithNameSurname() {
         open("http://localhost:9999");
         SelenideElement form = $("form");
         form.$(".input__control[type=text").setValue("Владимир Иванов");
         form.$(".input__control[type=tel").setValue("+79210000000");
         form.$(".checkbox__box").click();
         form.$(".button__content").click();
-        $(".paragraph").shouldHave(exactText("Ваша заявка успешно отправлена! " +
+        $("[data-test-id='order-success']").shouldHave(exactText("Ваша заявка успешно отправлена! " +
                 "Наш менеджер свяжется с вами в ближайшее время."));
     }
 
     @Test
-    void PositiveTestWithSurnameHyphen() {
+    void shouldBePositiveTestWithSurnameHyphen() {
         open("http://localhost:9999");
         SelenideElement form = $("form");
         form.$(".input__control[type=text").setValue("Владимир Иванов-Симонов");
         form.$(".input__control[type=tel").setValue("+79210000000");
         form.$(".checkbox__box").click();
         form.$(".button__content").click();
-        $(".paragraph").shouldHave(exactText("Ваша заявка успешно отправлена! " +
+        $("[data-test-id='order-success']").shouldHave(exactText("Ваша заявка успешно отправлена! " +
                 "Наш менеджер свяжется с вами в ближайшее время."));
     }
 }
