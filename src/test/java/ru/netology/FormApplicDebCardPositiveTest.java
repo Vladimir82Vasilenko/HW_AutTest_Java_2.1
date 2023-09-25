@@ -16,7 +16,8 @@ public class FormApplicDebCardPositiveTest {
         form.$(".input__control[type=tel").setValue("+79210000000");
         form.$(".checkbox__box").click();
         form.$(".button__content").click();
-        $("[data-test-id='order-success']").shouldHave(exactText("Ваша заявка успешно отправлена! " +
+        $("[data-test-id='order-success']")
+                .shouldHave(exactText("Ваша заявка успешно отправлена! " +
                 "Наш менеджер свяжется с вами в ближайшее время."));
     }
 
@@ -28,7 +29,8 @@ public class FormApplicDebCardPositiveTest {
         form.$(".input__control[type=tel").setValue("+79210000000");
         form.$(".checkbox__box").click();
         form.$(".button__content").click();
-        $("[data-test-id='order-success']").shouldHave(exactText("Ваша заявка успешно отправлена! " +
+        $("[data-test-id='order-success']")
+                .shouldHave(exactText("Ваша заявка успешно отправлена! " +
                 "Наш менеджер свяжется с вами в ближайшее время."));
     }
 
@@ -40,7 +42,8 @@ public class FormApplicDebCardPositiveTest {
         form.$(".input__control[type=tel").setValue("+79210000000");
         form.$(".checkbox__box").click();
         form.$(".button__content").click();
-        $("[data-test-id='order-success']").shouldHave(exactText("Ваша заявка успешно отправлена! " +
+        $("[data-test-id='order-success']")
+                .shouldHave(exactText("Ваша заявка успешно отправлена! " +
                 "Наш менеджер свяжется с вами в ближайшее время."));
     }
 }

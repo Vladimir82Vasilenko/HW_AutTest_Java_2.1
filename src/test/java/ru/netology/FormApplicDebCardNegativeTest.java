@@ -18,7 +18,8 @@ public class FormApplicDebCardNegativeTest {
         form.$(".input__control[type=tel").setValue("+79210000000");
         form.$(".checkbox__box").click();
         form.$(".button__content").click();
-        $("[data-test-id='name'].input_invalid .input__sub").shouldHave(exactText("Поле обязательно для заполнения"));
+        $("[data-test-id='name'].input_invalid .input__sub")
+                .shouldHave(exactText("Поле обязательно для заполнения"));
     }
     @Test
     void shouldBeNegativeTestLatinLettersNameSurname() {
@@ -28,7 +29,8 @@ public class FormApplicDebCardNegativeTest {
         form.$(".input__control[type=tel").setValue("+79210000000");
         form.$(".checkbox__box").click();
         form.$(".button__content").click();
-        $("[data-test-id='name'].input_invalid .input__sub").shouldHave(exactText("Имя и Фамилия указаные неверно. " +
+        $("[data-test-id='name'].input_invalid .input__sub")
+                .shouldHave(exactText("Имя и Фамилия указаные неверно. " +
                 "Допустимы только русские буквы, пробелы и дефисы."));
     }
     @Test
@@ -39,7 +41,8 @@ public class FormApplicDebCardNegativeTest {
         form.$(".input__control[type=tel").setValue("+79210000000");
         form.$(".checkbox__box").click();
         form.$(".button__content").click();
-        $("[data-test-id='name'].input_invalid .input__sub").shouldHave(exactText("Имя и Фамилия указаные неверно. " +
+        $("[data-test-id='name'].input_invalid .input__sub")
+                .shouldHave(exactText("Имя и Фамилия указаные неверно. " +
                 "Допустимы только русские буквы, пробелы и дефисы."));
     }
     @Test
@@ -50,7 +53,8 @@ public class FormApplicDebCardNegativeTest {
         form.$(".input__control[type=tel").setValue("+79210000000");
         form.$(".checkbox__box").click();
         form.$(".button__content").click();
-        $("[data-test-id='name'].input_invalid .input__sub").shouldHave(exactText("Имя и Фамилия указаные неверно. " +
+        $("[data-test-id='name'].input_invalid .input__sub")
+                .shouldHave(exactText("Имя и Фамилия указаные неверно. " +
                 "Допустимы только русские буквы, пробелы и дефисы."));
     }
 
@@ -62,7 +66,8 @@ public class FormApplicDebCardNegativeTest {
         form.$(".input__control[type=tel").setValue("89210000000");
         form.$(".checkbox__box").click();
         form.$(".button__content").click();
-        form.$("[data-test-id='phone'].input_invalid .input__sub") .shouldHave(exactText("Телефон указан неверно. Должно быть 11 цифр, " +
+        form.$("[data-test-id='phone'].input_invalid .input__sub")
+                .shouldHave(exactText("Телефон указан неверно. Должно быть 11 цифр, " +
                 "например, +79012345678."));
     }
     @Test
@@ -73,7 +78,8 @@ public class FormApplicDebCardNegativeTest {
         form.$(".input__control[type=tel").setValue("79210000000");
         form.$(".checkbox__box").click();
         form.$(".button__content").click();
-        form.$("[data-test-id='phone'].input_invalid .input__sub") .shouldHave(exactText("Телефон указан неверно. Должно быть 11 цифр, " +
+        form.$("[data-test-id='phone'].input_invalid .input__sub")
+                .shouldHave(exactText("Телефон указан неверно. Должно быть 11 цифр, " +
                 "например, +79012345678."));
     }
     @Test
@@ -84,8 +90,20 @@ public class FormApplicDebCardNegativeTest {
         form.$(".input__control[type=tel").setValue("+7921000");
         form.$(".checkbox__box").click();
         form.$(".button__content").click();
-        form.$("[data-test-id='phone'].input_invalid .input__sub") .shouldHave(exactText("Телефон указан неверно. Должно быть 11 цифр, " +
+        form.$("[data-test-id='phone'].input_invalid .input__sub")
+                .shouldHave(exactText("Телефон указан неверно. Должно быть 11 цифр, " +
                 "например, +79012345678."));
+    }
+    @Test
+    void shouldBeNegativeTestPhoneNumberEmpty() {
+        open("http://localhost:9999");
+        SelenideElement form = $("form");
+        form.$(".input__control[type=text").setValue("Владимир Иванов");
+        form.$(".input__control[type=tel").setValue("  ");
+        form.$(".checkbox__box").click();
+        form.$(".button__content").click();
+        form.$("[data-test-id='phone'].input_invalid .input__sub")
+                .shouldHave(exactText("Поле обязательно для заполнения"));
     }
     @Test
     void shouldBeNegativeTestWithoutCheckbox() {
